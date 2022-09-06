@@ -69,7 +69,7 @@ where <file> is the name of the file
 
 ###### 6. sub
 - Implement the sub opcode.
-######The sub opcode
+###### The sub opcode
 - The opcode sub subtracts the top element of the stack from the second top element of the stack.
     - Usage: sub
     - If the stack contains less than two elements, print the error message L<line_number>: can't sub, stack too short, followed by a new line, and exit with the status EXIT_FAILURE

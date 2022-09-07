@@ -11,7 +11,7 @@ void push_stack(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_stack;
 	char *arg, message[100];
-	
+
 	/*check if stack exists*/
 	if (!stack)
 		error_message("No stack present.", "", stack);
@@ -45,7 +45,7 @@ void push_queues(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_queue, *temp = *stack;
 	char *arg, message[100];
-	
+
 	/*check if stack is there*/
 	if (!stack)
 		error_message("No stack present.", "", stack);

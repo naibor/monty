@@ -1,3 +1,4 @@
+#include "monty.h"
 /**
 * _isnumber - Helper function
 * Description: checks if a string is a number.

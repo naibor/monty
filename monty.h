@@ -36,7 +36,7 @@ typedef struct instruction_s
 } instruction_t;
 
 /*helper functions*/
-void error_message(char *message, char *arg);
+void error_message(char *message, char *arg, stack_t **stack);
 short _isnumber(char *str);
 size_t length_stack(const stack_t *head);
 

@@ -10,15 +10,16 @@ global_t the_global;
  */
 int main(int argc, char *argv[])
 {
-	instruction_t opcodes[] = {{"push", push_stack}, {"pall", pall}, {"pop", pop}, {"pint", pint}, {"swap", swap}, {"add", add}
+	instruction_t opcodes[] = {{"push", push_stack}, {"pall", pall},
+	 {"pop", pop}, {"pint", pint}, {"swap", swap}, {"add", add}
 	};
 	stack_t *stack = NULL;
 	int line_number = 1, getline_res = 0;
 	size_t buf_size = 0;
 
 	if (argc != 2)
-	{	
-		/*return error message*/
+	{
+
 		error_message("USAGE: monty file", "", &stack);
 	}
 	the_global.file = fopen(argv[1], "r");

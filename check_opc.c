@@ -1,9 +1,6 @@
 #include "monty.h"
 /**
-* check_opc - Function
-* 
-* Description: Checks if the opcode is valid and executes it.
-*
+* check_opc - Checks if the opcode is valid and executes it.
 * @Line_buffer: Opcode given by the user (after strtok).
 * @opcodes: Valid opcodes.
 * @line_number: Line number of script.

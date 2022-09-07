@@ -27,7 +27,7 @@ void pall(stack_t **stack, unsigned int line_number)
 *
 * @stack: pointer parameter, head of the stack
 * @line_number: line number
-* 
+*
 */
 
 void pint(stack_t **stack, unsigned int line_number)

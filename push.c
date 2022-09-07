@@ -17,7 +17,7 @@ void push_stack(stack_t **stack, unsigned int line_number)
 		error_message("No stack present.", "", stack);
 	arg = strtok(NULL, " \t");
 	/*check if user input is a number*/
-	if (!arg || !isnumber(arg))
+	if (!arg || !_isnumber(arg))
 		error_message(message, "", stack);
 	/*allocate memory to new stack and check if null*/
 	new_stack = malloc(sizeof(stack_t));

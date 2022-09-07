@@ -49,7 +49,7 @@ typedef struct glob
 /*helper functions*/
 void error_message(char *message, char *arg, stack_t **stack);
 short _isnumber(char *str);
-size_t length_stack(const stack_t **head);
+size_t length_stack(const stack_t *head);
 void free_all(stack_t **stack);
 
 /*functions*/

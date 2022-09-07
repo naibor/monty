@@ -8,12 +8,13 @@ int main(int argc, char *argv[])
 {
 	instruction_t opcodes[] = {{"push", push_stack}, {"pall", pall}, {"pop", pop}, {"pint", pint}
 	};
+	stack_t *stack = NULL;
 
 	if (argc != 2)
 	{	
 		/*return error message*/
-		error_message("USAGE: monty file", "");
+		error_message("USAGE: monty file", "", &stack);
 	}
-	return (EXIT_SUCCESS)
+	return (EXIT_SUCCESS);
 
 }

@@ -12,8 +12,8 @@ int main(int argc, char *argv[])
 	stack_t *stack = NULL;
 
 	if (argc != 2)
-	{	
-		/*return error message*/
+	{
+
 		error_message("USAGE: monty file", "", &stack);
 	}
 	return (EXIT_SUCCESS);

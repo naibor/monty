@@ -6,8 +6,9 @@
  */
 int main(int argc, char *argv[])
 {
-	instruction_t opcodes[] = {}
+	instruction_t opcodes[] = {{"push", push_stack}
 	};
+
 	if (argc != 2)
 	{	
 		/*return error message*/

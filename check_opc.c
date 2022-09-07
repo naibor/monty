@@ -1,3 +1,11 @@
+#include "monty.h"
+/**
+* check_opc - Checks if the opcode is valid and executes it.
+* @Line_buffer: Opcode given by the user (after strtok).
+* @opcodes: Valid opcodes.
+* @line_number: Line number of script.
+* @stack: Stack (or queue) to work with.
+*/
 void check_opc(char *Line_buffer, instruction_t (*opcodes)[], int line_number,
 stack_t **stack)
 {

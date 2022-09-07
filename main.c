@@ -6,7 +6,7 @@
  */
 int main(int argc, char *argv[])
 {
-	instruction_t opcodes[] = {{"push", push_stack}
+	instruction_t opcodes[] = {{"push", push_stack}, {"pall", pall}
 	};
 
 	if (argc != 2)

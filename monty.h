@@ -1,6 +1,6 @@
 #ifndef MONTY_H
 #define MONTY_H
-
+#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -39,6 +39,7 @@ typedef struct instruction_s
 void error_message(char *message, char *arg);
 short _isnumber(char *str);
 size_t length_stack(const stack_t *head);
+void free_all(stack_t **stack);
 
 /*functions*/
 void push_stack(stack_t **stack, unsigned int line_number);

@@ -17,7 +17,6 @@ void pop(stack_t **stack, unsigned int line_number)
 	sprintf(message, "L%d: can't pop an empty stack", line_number);
 	if (!*stack)
 		error_message(message, "", stack);
-	
 	*stack = move->next;
 
 	/*remove the first item and redirect nodes*/

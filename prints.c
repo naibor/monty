@@ -39,7 +39,7 @@ void pint(stack_t **stack, unsigned int line_number)
 	/** calculate the length of the stack */
 	while (temp != NULL)
 	{
-		length = length_stack(*temp)
+		length = length_stack(*temp);
 	}
 	/* check if stack exists or is empty*/
 	if (*stack == NULL || length < 1)

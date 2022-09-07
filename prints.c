@@ -34,16 +34,15 @@ void pint(stack_t **stack, unsigned int line_number)
 {
 	const stack_t *temp = *stack;
 	char message[100];
-	unsigned int length_stack = 0;
+	unsigned int length;
 
 	/** calculate the length of the stack */
 	while (temp != NULL)
 	{
-		temp = temp->next;
-		length_stack++;
+		length = length_stack(*temp)
 	}
-	/*check if stack exists or is empty*/
-	if (*stack == NULL || length_stack < 1)
+	/* check if stack exists or is empty*/
+	if (*stack == NULL || length < 1)
 	{
 		sprintf(message, "L%u: can't pint, stack empty", line_number);
 		error_message(message, "", stack);

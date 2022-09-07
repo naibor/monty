@@ -1,3 +1,14 @@
+#include "monty.h"
+/**
+* check_opc - Function
+* 
+* Description: Checks if the opcode is valid and executes it.
+*
+* @Line_buffer: Opcode given by the user (after strtok).
+* @opcodes: Valid opcodes.
+* @line_number: Line number of script.
+* @stack: Stack (or queue) to work with.
+*/
 void check_opc(char *Line_buffer, instruction_t (*opcodes)[], int line_number,
 stack_t **stack)
 {
@@ -12,12 +23,12 @@ stack_t **stack)
 		return;
 	if (!strcmp(Line_buffer, "queue"))
 	{
-		(*opcodes)[0].f = push_q;
+		(*opcodes)[0].f = push_queues;
 		return;
 	}
 	if (!strcmp(Line_buffer, "stack"))
 	{
-		(*opcodes)[0].f = push_s;
+		(*opcodes)[0].f = push_stack;
 		return;
 	}
 	for (i = 0; i < 14; i++)
@@ -31,7 +42,7 @@ stack_t **stack)
 	if (i == 14)
 	{
 		sprintf(message, "L%d: unknown instruction %s", line_number, Line_buffer);
-		error_mes(message, "", stack);
+		error_message(message, "", stack);
 	}
 	return;
 

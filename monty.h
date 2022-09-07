@@ -38,7 +38,7 @@ typedef struct instruction_s
 /*helper functions*/
 void error_message(char *message, char *arg, stack_t **stack);
 short _isnumber(char *str);
-size_t length_stack(const stack_t *head);
+size_t length_stack(const stack_t **head);
 void free_all(stack_t **stack);
 
 /*functions*/
@@ -47,4 +47,6 @@ void push_queues(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
+void check_opc(char *, instruction_t (*o)[], int, stack_t **);
 #endif

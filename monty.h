@@ -31,4 +31,7 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/*helper functions*/
+void error_message(char *message, char *arg);
+
 #endif

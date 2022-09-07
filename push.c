@@ -16,6 +16,7 @@ void push_stack(stack_t **stack, unsigned int line_number)
 	if (!stack)
 		error_message("No stack present.", "", stack);
 	arg = strtok(NULL, " \t");
+	sprintf(message, "L%d: usage: push integer", line_number);
 	/*check if user input is a number*/
 	if (!arg || !_isnumber(arg))
 		error_message(message, "", stack);

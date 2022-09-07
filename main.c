@@ -6,7 +6,7 @@ global_t the_global;
  * @argc: number of arguments
  * @argv: list of arguments
  *
- * Return: returns EXIT_SUCCESS on success else EXIT_FAILURE 
+ * Return: returns EXIT_SUCCESS on success else EXIT_FAILURE
  */
 int main(int argc, char *argv[])
 {

@@ -35,6 +35,17 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+* struct glob - Structure for global variable
+* @Line_buffer: Result of getline on file.
+* @file: File to read.
+*/
+typedef struct glob
+{
+	char *Line_buffer;
+	FILE *file;
+} global_t;
+
 /*helper functions*/
 void error_message(char *message, char *arg, stack_t **stack);
 short _isnumber(char *str);
@@ -47,6 +58,7 @@ void push_queues(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void check_opc(char *, instruction_t (*o)[], int, stack_t **);
 #endif

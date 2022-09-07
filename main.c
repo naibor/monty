@@ -6,7 +6,7 @@
  */
 int main(int argc, char *argv[])
 {
-	instruction_t opcodes[] = {{"push", push_stack}, {"pall", pall}, {"pop", pop}, {"pint", pint}
+	instruction_t opcodes[] = {{"push", push_stack}, {"pall", pall}, {"pop", pop}, {"pint", pint},{"add", add}
 	};
 	stack_t *stack = NULL;
 

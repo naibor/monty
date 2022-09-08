@@ -11,8 +11,7 @@ global_t the_global;
 int main(int argc, char *argv[])
 {
 	instruction_t opcodes[] = {{"push", push_stack}, {"pall", pall},
-	 {"pop", pop}, {"pint", pint}, {"swap", swap}, {"add", add},
-	 {"sub", sub}
+	 {"pop", pop}, {"pint", pint}, {"swap", swap}, {"add", add}
 	};
 	stack_t *stack = NULL;
 	int line_number = 1, getline_res = 0;

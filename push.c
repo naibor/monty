@@ -1,73 +1,114 @@
 #include "monty.h"
 /**
-* push_stack - Function
-*
-* Description: Push on a stack.
-*
-* @stack: The said stack.
+* push_s - Push on a stack.
+* @stack: Stack.
 * @line_number: Line number.
 */
-void push_stack(stack_t **stack, unsigned int line_number)
+void push_s(stack_t **stack, unsigned int line_number)
 {
-	stack_t *new_stack;
+	stack_t *new;
 	char *arg, message[100];
 
-	/*check if stack exists*/
 	if (!stack)
 		error_message("No stack present.", "", stack);
 	arg = strtok(NULL, " \t");
 	sprintf(message, "L%d: usage: push integer", line_number);
-	/*check if user input is a number*/
-	if (!arg || !_isnumber(arg))
+	if (!arg || !isnumber(arg))
 		error_message(message, "", stack);
-	/*allocate memory to new stack and check if null*/
-	new_stack = malloc(sizeof(stack_t));
-	if (!new_stack)
+	new = malloc(sizeof(stack_t));
+	if (!new)
 		error_message("Error: malloc failed", "", stack);
-	/*assign value of n to user input arg*/
-	new_stack->n = atoi(arg);
-	new_stack->next = *stack;
-	new_stack->prev = NULL;
+	new->n = atoi(arg);
+	new->next = *stack;
+	new->prev = NULL;
 	if (*stack)
-		(*stack)->prev = new_stack;
-	*stack = new_stack;
+		(*stack)->prev = new;
+	*stack = new;
+}
+/**
+* push_q - Push on a queue.
+* @stack: Stack.
+* @line_number: Line number.
+*/
+void push_q(stack_t **stack, unsigned int line_number)
+{
+	stack_t *new, *h = *stack;
+	char *arg, message[100];
+
+	if (!stack)
+		error_message("No stack present.", "", stack);
+	arg = strtok(NULL, " \t");
+	sprintf(message, "L%d: usage: push integer", line_number);
+	if (!arg || !isnumber(arg))
+		error_message(message, "", stack);
+	new = malloc(sizeof(stack_t));
+	if (!new)
+		error_message("Error: malloc failed", "", stack);
+	new->n = atoi(arg);
+	new->next = NULL;
+	if (!*stack)
+	{
+		new->prev = *stack;
+		*stack = new;
+		return;
+	}
+	while (h->next)
+		h = h->next;
+	h->next = new;
+	new->prev = h;
+}
+/**
+* pop - Deletes top item on a stack or queue.
+* @stack: Stack.
+* @line_number: Line number.
+*/
+void pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *iterator = *stack;
+	char message[100];
+
+	if (!stack)
+		error_message("No stack present.", "", stack);
+	sprintf(message, "L%d: can't pop an empty stack", line_number);
+	if (!*stack)
+		error_message(message, "", stack);
+
+	*stack = iterator->next;
+	if (iterator->next)
+		iterator->next->prev = NULL;
+	free(iterator);
+}
+/**
+* error_message - Prints error message and exits with failure.
+* @mess: Message to print.
+* @arg: Additional argument.
+* @stack: stack to free.
+*/
+void error_message(char *mess, char *arg, stack_t **stack)
+{
+	free_all(stack);
+	fprintf(stderr, "%s%s\n", mess, arg);
+	exit(EXIT_FAILURE);
 }
 
 /**
-* push_queues - Function
-*
-* Description: Push on a queue.
-*
-* @stack: the stack.
-* @line_number: Line number.
+* free_all - Frees the stack
+* @stack: stack to free
+* Return: Nothing (void)
 */
-void push_queues(stack_t **stack, unsigned int line_number)
-{
-	stack_t *new_queue, *temp = *stack;
-	char *arg, message[100];
 
-	/*check if stack is there*/
-	if (!stack)
-		error_message("No stack present.", "", stack);
-	arg = strtok(NULL, " \t");
-	sprintf(message, "L%d: usage: push integer", line_number);
-	if (!arg || !_isnumber(arg))
-		error_message(message, "", stack);
-	/*allocate memory and check if null*/
-	new_queue = malloc(sizeof(stack_t));
-	if (!new_queue)
-		error_message("Error: malloc failed", "", stack);
-	/*assign user input to value*/
-	new_queue->n = atoi(arg);
-	new_queue->next = NULL;
-	if (!*stack)
+void free_all(stack_t **stack)
+{
+	stack_t *temp;
+
+	while (*stack)
 	{
-		new_queue->prev = *stack;
-		*stack = new_queue;
-		return;
+		temp = *stack;
+		*stack = (*stack)->next;
+		free(temp);
 	}
-	while (temp->next)
-		temp = temp->next;
-	temp->next = new_queue;
-	new_queue->prev = temp;
+	if (my_global.Line_buffer)
+		free(my_global.Line_buffer);
+	if (my_global.file)
+		fclose(my_global.file);
 }

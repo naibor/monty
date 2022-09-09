@@ -1,4 +1,5 @@
 #include "monty.h"
+
 global_t the_global;
 /**
  * main - Entry point

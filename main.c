@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 	{"pop", pop}, {"swap", swap}, {"add", add}, {"sub", sub}, {"div", divi},
 	{"mul", mul}, {"mod", mod}, {"pchar", pchar}, {"pstr", pstr}, {"rotl", rotl},
 	{"rotr", rotr}};
-	int line_number = 1, getl_res = 0;
+	int line_number = 1, getline_res = 0;
 	size_t buf_size = 0;
 	stack_t *stack = NULL;
 
@@ -24,8 +24,8 @@ int main(int argc, char *argv[])
 		error_message("Error: Can't open file ", argv[1], &stack);
 	while (1)
 	{
-		getl_res = getline(&my_global.Line_buffer, &buf_size, my_global.file);
-		if (getl_res == EOF)
+		getline_res = getline(&my_global.Line_buffer, &buf_size, my_global.file);
+		if (getline_res == EOF)
 			break;
 		check_opc(strtok(my_global.Line_buffer, " \t"), &opcodes, line_number,
 			&stack);

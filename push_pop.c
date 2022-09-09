@@ -10,14 +10,14 @@ void push_s(stack_t **stack, unsigned int line_number)
 	char *arg, message[100];
 
 	if (!stack)
-		error_mes("No stack present.", "", stack);
+		error_message("No stack present.", "", stack);
 	arg = strtok(NULL, " \t");
 	sprintf(message, "L%d: usage: push integer", line_number);
 	if (!arg || !isnumber(arg))
-		error_mes(message, "", stack);
+		error_message(message, "", stack);
 	new = malloc(sizeof(stack_t));
 	if (!new)
-		error_mes("Error: malloc failed", "", stack);
+		error_message("Error: malloc failed", "", stack);
 	new->n = atoi(arg);
 	new->next = *stack;
 	new->prev = NULL;
@@ -36,14 +36,14 @@ void push_q(stack_t **stack, unsigned int line_number)
 	char *arg, message[100];
 
 	if (!stack)
-		error_mes("No stack present.", "", stack);
+		error_message("No stack present.", "", stack);
 	arg = strtok(NULL, " \t");
 	sprintf(message, "L%d: usage: push integer", line_number);
 	if (!arg || !isnumber(arg))
-		error_mes(message, "", stack);
+		error_message(message, "", stack);
 	new = malloc(sizeof(stack_t));
 	if (!new)
-		error_mes("Error: malloc failed", "", stack);
+		error_message("Error: malloc failed", "", stack);
 	new->n = atoi(arg);
 	new->next = NULL;
 	if (!*stack)
@@ -68,10 +68,10 @@ void pop(stack_t **stack, unsigned int line_number)
 	char message[100];
 
 	if (!stack)
-		error_mes("No stack present.", "", stack);
+		error_message("No stack present.", "", stack);
 	sprintf(message, "L%d: can't pop an empty stack", line_number);
 	if (!*stack)
-		error_mes(message, "", stack);
+		error_message(message, "", stack);
 
 	*stack = iterator->next;
 	if (iterator->next)
@@ -79,12 +79,12 @@ void pop(stack_t **stack, unsigned int line_number)
 	free(iterator);
 }
 /**
-* error_mes - Prints error message and exits with failure.
+* error_message - Prints error message and exits with failure.
 * @mess: Message to print.
 * @arg: Additional argument.
 * @stack: stack to free.
 */
-void error_mes(char *mess, char *arg, stack_t **stack)
+void error_message(char *mess, char *arg, stack_t **stack)
 {
 	free_all(stack);
 	fprintf(stderr, "%s%s\n", mess, arg);

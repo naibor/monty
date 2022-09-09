@@ -18,10 +18,10 @@ int main(int argc, char *argv[])
 	stack_t *stack = NULL;
 
 	if (argc != 2)
-		error_mes("USAGE: monty file", "", &stack);
+		error_message("USAGE: monty file", "", &stack);
 	my_global.file = fopen(argv[1], "r");
 	if (!my_global.file)
-		error_mes("Error: Can't open file ", argv[1], &stack);
+		error_message("Error: Can't open file ", argv[1], &stack);
 	while (1)
 	{
 		getl_res = getline(&my_global.Line_buffer, &buf_size, my_global.file);
@@ -74,7 +74,7 @@ stack_t **stack)
 	if (i == 14)
 	{
 		sprintf(message, "L%d: unknown instruction %s", line_number, Line_buffer);
-		error_mes(message, "", stack);
+		error_message(message, "", stack);
 	}
 	return;
 

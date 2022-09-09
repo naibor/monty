@@ -59,7 +59,7 @@ void pstr(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
 void check_opc(char *, instruction_t (*o)[], int, stack_t **);
-void error_mes(char *mess, char *arg, stack_t **stack);
+void error_message(char *mess, char *arg, stack_t **stack);
 void free_all(stack_t **stack);
 short isnumber(char *str);
 #endif /* _MONTY_H */
